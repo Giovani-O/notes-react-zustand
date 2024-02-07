@@ -1,4 +1,5 @@
 import { Trash } from 'lucide-react'
+import { useNoteStore } from '../store'
 
 interface NoteProps {
   id: string
@@ -6,8 +7,10 @@ interface NoteProps {
 }
 
 export function Note({ id, content }: NoteProps) {
+  const deleteNote = useNoteStore((store) => store.deleteNote)
+
   function handleDeleteNote() {
-    console.log(id)
+    deleteNote(id)
   }
 
   return (
@@ -15,7 +18,7 @@ export function Note({ id, content }: NoteProps) {
       <p>{content}</p>
       <button
         type="button"
-        className="p-2 hover:text-rose-600 transition-colors"
+        className="p-2 rounded-full hover:bg-slate-800 hover:text-rose-600 transition-colors "
         onClick={handleDeleteNote}
       >
         <Trash size={18} />

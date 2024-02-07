@@ -1,7 +1,7 @@
 import { ChangeEvent, FormEvent, useState } from 'react'
 import { Note } from './components/note'
 import { Save } from 'lucide-react'
-import { v4 as uuidv4 } from 'uuid'
+import { useNoteStore } from './store'
 
 interface Note {
   id: string
@@ -9,8 +9,10 @@ interface Note {
 }
 
 export function App() {
+  const notes = useNoteStore((store) => store.notes)
+  const addNote = useNoteStore((store) => store.addNote)
+
   const [content, setContent] = useState('')
-  const [notes, setNotes] = useState([] as Note[])
 
   function handleInputChange(event: ChangeEvent<HTMLInputElement>) {
     setContent(event.target.value)
@@ -20,15 +22,13 @@ export function App() {
     event.preventDefault()
 
     if (content) {
-      const newNote = { id: uuidv4(), content: content } as Note
-      setNotes([...notes, newNote])
-
+      addNote(content)
       setContent('')
     }
   }
 
   return (
-    <main className="w-full h-screen flex justify-center py-8 bg-slate-950">
+    <main className="w-full min-h-screen flex justify-center py-8 bg-slate-950">
       <section className="max-w-6xl flex-1 flex flex-col gap-4">
         <h1 className="font-sans font-normal text-2xl text-slate-400">
           Saving notes with Zustand 🐻
