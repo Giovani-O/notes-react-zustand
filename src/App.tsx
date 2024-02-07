@@ -26,7 +26,7 @@ export function App() {
   }
 
   return (
-    <main className="w-full h-full flex justify-center py-8 bg-slate-950">
+    <main className="w-full h-screen flex justify-center py-8 bg-slate-950">
       <section className="max-w-6xl flex-1 flex flex-col gap-4">
         <h1 className="font-sans font-normal text-2xl text-slate-400">
           Saving notes with Zustand
@@ -52,7 +52,7 @@ export function App() {
 
         <div className="w-full flex flex-col gap-4 text-slate-300">
           {notes.map((note) => (
-            <Note key={note.id} content={note.content} />
+            <Note key={note.id} id={note.id} content={note.content} />
           ))}
         </div>
       </section>
