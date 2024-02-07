@@ -11,7 +11,7 @@ export function Note({ id, content }: NoteProps) {
   }
 
   return (
-    <article className="flex justify-between w-full p-6 rounded-md bg-slate-900 text-slate-400">
+    <article className="flex justify-between items-center w-full p-6 rounded-md bg-slate-900 text-slate-400">
       <p>{content}</p>
       <button
         type="button"

@@ -3,12 +3,12 @@ import { Note } from './components/note'
 import { Save } from 'lucide-react'
 import { v4 as uuidv4 } from 'uuid'
 
-export function App() {
-  interface Note {
-    id: string
-    content: string
-  }
+interface Note {
+  id: string
+  content: string
+}
 
+export function App() {
   const [content, setContent] = useState('')
   const [notes, setNotes] = useState([] as Note[])
 
@@ -19,17 +19,19 @@ export function App() {
   function handleSaveNote(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
 
-    const newNote = { id: uuidv4(), content: content } as Note
-    setNotes([...notes, newNote])
+    if (content) {
+      const newNote = { id: uuidv4(), content: content } as Note
+      setNotes([...notes, newNote])
 
-    setContent('')
+      setContent('')
+    }
   }
 
   return (
     <main className="w-full h-screen flex justify-center py-8 bg-slate-950">
       <section className="max-w-6xl flex-1 flex flex-col gap-4">
         <h1 className="font-sans font-normal text-2xl text-slate-400">
-          Saving notes with Zustand
+          Saving notes with Zustand 🐻
         </h1>
         <form onSubmit={handleSaveNote} className="flex gap-4">
           <input
