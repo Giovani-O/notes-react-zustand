@@ -28,12 +28,12 @@ export function App() {
   }
 
   return (
-    <main className="w-full min-h-screen flex justify-center py-8 bg-slate-950">
+    <main className="w-full min-h-screen flex justify-center py-8 px-4 bg-slate-950">
       <section className="max-w-6xl flex-1 flex flex-col gap-4">
         <h1 className="font-sans font-normal text-2xl text-slate-400">
           Saving notes with Zustand 🐻
         </h1>
-        <form onSubmit={handleSaveNote} className="flex gap-4">
+        <form onSubmit={handleSaveNote} className="flex gap-4 ">
           <input
             value={content}
             onChange={handleInputChange}
@@ -43,10 +43,10 @@ export function App() {
           />
           <button
             type="submit"
-            className="w-[220px] flex gap-2 items-center justify-center p-2 rounded-md text-lg ring-1 ring-slate-800 active:ring-indigo-600 bg-slate-900 text-slate-300 hover:bg-slate-800 hover:text-indigo-400 transition-colors"
+            className="sm:w-auto md:w-[220px] flex gap-2 items-center justify-center py-2 px-4 rounded-md text-lg ring-1 ring-slate-800 active:ring-indigo-600 bg-slate-900 text-slate-300 hover:bg-slate-800 hover:text-indigo-400 transition-colors"
           >
             <Save size={18} />
-            Save note
+            <span className="hidden md:block">Save note</span>
           </button>
         </form>
 
