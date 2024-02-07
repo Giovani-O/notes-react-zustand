@@ -1,6 +1,6 @@
 # Saving notes with Zustand
 
-This is a simple project that I created to study how to use Zustand in my React projects, feel free to try it at [Vercel](https://notes-zustand-k2cpby5ay-giovani-o.vercel.app/).
+This is a simple project that I created to study how to use Zustand in my React projects, feel free to try it at [Vercel](https://notes-zustand-ju9bjx6mt-giovani-o.vercel.app/).
 
 ## How to run
 1. Clone this repository
